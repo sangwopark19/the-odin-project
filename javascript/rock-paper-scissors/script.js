@@ -8,16 +8,25 @@ function getComputerChoice() {
 	let choice = '';
 	switch (num) {
 		case 1:
-			choice = 'Rock' ;
+			choice = 'rock' ;
 			break;
 		case 2:
-			choice = 'Paper'
+			choice = 'paper'
 			break;
 		case 3:
-			choice = 'Scissors'
+			choice = 'scissors'
 			break;
 	}
 	return choice;
 }
 
-console.log(getComputerChoice());
+function playGame(playserSelection, computerSelection) {
+	playserSelection = playserSelection.toLowerCase();
+	if (playserSelection === computerSelection) {
+		
+	}
+	console.log(playserSelection);
+	console.log(computerSelection);
+}
+
+playGame('ROCK', getComputerChoice());
