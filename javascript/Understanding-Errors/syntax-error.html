@@ -7,6 +7,7 @@
 </head>
 <body>
 	<script>
+		// SyntaxError 처리하기
 		try {
 			eval("hoo bar");
 		} catch (error) {
@@ -14,6 +15,16 @@
 			console.log(error.message);
 			console.log(error.name); // "SyntaxError"
 			console.log(error.stack); // 오류 스택
+		}
+		console.log('------------');
+		// SyntaxError 생성하기
+		try {
+			throw new SyntaxError('Hello');
+		} catch (e) {
+			console.log(e instanceof SyntaxError); // true
+			console.log(e.message); // 'Hello'
+			console.log(e.name); // 'SyntaxError'
+			console.log(e.stack); // 오류 스택
 		}
 	</script>
 </body>
