@@ -18,6 +18,17 @@
 			console.log(e.columNumber);
 			console.log(e.stack);
 		}
+		console.log('-----------');
+		try {
+			throw new ReferenceError('Hello', 'someFile.js', 10);
+		} catch (e) {
+			console.log(e instanceof ReferenceError); // true
+			console.log(e.message); // Hello
+			console.log(e.name); // 'ReferenceError'
+			console.log(e.fileName);
+			console.log(e.stack);
+
+		}
 	</script>
 </body>
 </html>
