@@ -25,10 +25,42 @@ function capitalize(str) {
 	return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// 가위바위보 결과 출력
+// 가위바위보 숫자로 변환
+function strToInt(str) {
+	let result = 0;
+	switch (str) {
+		case 'rock':
+			result = 1;
+			break;
+		case 'paper':
+			result = 2;
+			break;
+		case 'scissors':
+			result = 3;
+			break;
+	}
+	return result;
+}
+
+// 3<1<2 이기는 경우 -2, 1, 1 지는경우 -1, -1, 2
+// 1<2<3
+// 2<3<1
+// 가위바위보 1 라운드
 function playRound(playserSelection, computerSelection) {
 	playserSelection = playserSelection.toLowerCase();
-	return 'Your Lose! ' + capitalize(computerSelection) + ' beats ' + capitalize(playserSelection)
+	let result;
+	if (playserSelection === computerSelection) {
+		result = 'Draw';
+	} else {
+		let you = strToInt(playserSelection);
+		let com = strToInt(computerSelection);
+		if (you - com === -2 || you - com === 1) {
+			result = 'Win';
+		} else if (you - com === -1 || you - com === 2) {
+			result = 'Lose';
+		}
+	}
+	return 'Your ' + result + '! ' + capitalize(computerSelection) + ' beats ' + capitalize(playserSelection)
 }
 
 function game() {
