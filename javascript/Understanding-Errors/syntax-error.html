@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		try {
+			eval("hoo bar");
+		} catch (error) {
+			console.log(error instanceof SyntaxError); // true
+			console.log(error.message);
+			console.log(error.name); // "SyntaxError"
+			console.log(error.stack); // 오류 스택
+		}
+	</script>
+</body>
+</html>
